@@ -28,6 +28,10 @@ int main() {
     xuat(a,n);
     int *bubble = bubblesort(a,n);
    
-    printf("mang sap xep tang dan la %d",bubble);
-return 0;
+    printf("mang duoc sap xep la\n");
+    for (int i=0;i<=n;i++){ 
+        printf("%d\n",*bubble);
+        bubble++;
+    }
+    return 0;
 }
