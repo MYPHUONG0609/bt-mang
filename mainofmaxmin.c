@@ -1,6 +1,6 @@
 #include<stdio.h>
 #define MAX 100
-#include"maxmin.c"
+#include"maxmin.h"
 void Nhapmang(int a[],int n){
      printf("Nhap n:");
 scanf("%d",&n);
@@ -24,7 +24,9 @@ main(){
     Xuatmang(a,n);
     int max=findmax(a,n);
     int min=findmin(a,n);
+    float average=findaverage(a,n);
     printf("so lon nhat trong mang la %d",max);
     printf("so nho nhat trong mang la %d",min);
+    printf("gia tri trung binh cua mang la %f",average);
     return 0;
 }
