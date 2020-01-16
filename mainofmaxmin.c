@@ -18,7 +18,7 @@ for(int i=0;i<n;i++)
 printf("%d\t",a[i]);
 }
 }
-main(){
+int main(){
     int a[MAX],n;
     Nhapmang(a,n);
     Xuatmang(a,n);
