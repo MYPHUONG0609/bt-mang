@@ -1,2 +1,2 @@
 
-int **SpiralPrint( int a[][100],int m,int n);
+int **SpiralPrint( int **a,int dong,int cot);
