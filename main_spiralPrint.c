@@ -1,45 +1,52 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include"header_spiralPrint.h"
-void NhapMaTran(int a[][100], int m, int n)
+void NhapMaTran(int **a, int dong, int cot)
 {
-   for(int i = 0; i < m; i++)
-      for(int j = 0; j < n; j++)
-      {
-         printf("A[%d][%d] = ", i, j);
-         scanf("%d", &a[i][j]);
-      }
+    int i, j;
+    for (i = 0; i < dong; i++)
+        for (j = 0; j < cot; j++)
+        {
+            printf("a[%d][%d] = ", i, j);
+            scanf("%d", &a[i][j]);
+        }
 }
- 
-void XuatMaTran(int a[][100], int m, int n)
+void XuatMaTran(int **a, int dong, int cot)
 {
-   for(int i = 0; i < m; i++)
-   {
-      for(int j = 0; j < n; j++)
-         printf("%d\t", a[i][j]);
-      printf("\n");
-   }
+    int i, j;
+    for (i = 0; i < dong; i++)
+    {
+        for (j = 0; j < cot; j++)
+            printf("%5d", a[i][j]);
+        printf("\n");
+    }
 }
-
-
-    
- 
-int main(){
-    int a[100][100];
-    int m,n;
-    printf("nhap so hang n = "); scanf("%d",&n);
-    printf("nhap so cot m = "); scanf("%d",&m);
-    printf("nhap vao ma tran:\n");
-    NhapMaTran(a, m , n);
-    XuatMaTran(a, m, n);
-    int **print=SpiralPrint(a,m,n);
-    for(int i = 0; i < m; i++)
-   {
-      for(int j = 0; j < n; j++)
-         printf("%d\t", print);
-      printf("\n");
-   }
-   print++;
-
-   
-    return 0;
+int main()
+{
+    int **a = NULL, dong, cot;
+    int i;
+    printf("Nhap vao so dong = ");
+    scanf("%d", &dong);
+    printf("Nhap vao so cot = ");
+    scanf("%d", &cot);
+    a = (int **)malloc(dong * sizeof(int *));
+    for (i = 0; i < dong; i++)
+    {
+          a[i] = (int *)malloc(cot * sizeof(int));
+    }
+    NhapMaTran(a, dong, cot);
+    XuatMaTran(a, dong, cot);
+     int **print=SpiralPrint(a,dong,cot);
+    for(i=0;i<dong;i++) {
+        for (int j=0;j<cot;j++) {
+           printf("mang xoan oc la %d",print);
+        }
+        print++;
+    }
+     for (i = 0; i < dong; i++)
+    {
+        free(a[i]);
+    }
+   free(a);
+   return 0;
 }
