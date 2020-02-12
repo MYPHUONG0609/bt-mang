@@ -4,26 +4,26 @@ int **SpiralPrint( int **a,int dong,int cot) {
  int i, daudong = 0, daucot = 0; 
    while (daudong < dong && daucot< cot) { 
         for (i = daucot; i < cot; ++i) { 
-            printf("%d ", a[k][i]); 
+            printf("%d ", a[daudong][daucot]); 
         } 
-        k++; 
+        daudong++; 
   
         for (i = daudong; i < dong; ++i) { 
-            printf("%d ", a[i][n - 1]); 
+            printf("%d ", a[i][cot - 1]); 
         } 
-        n--; 
+        cot--; 
   
        
         if (daudong < dong) { 
-            for (i = n - 1; i >= l; --i) { 
-               printf("%d ", a[m - 1][i]); 
+            for (i = cot - 1; i >= daucot; --i) { 
+               printf("%d ", a[dong - 1][i]); 
             } 
-            m--; 
+            dong--; 
         } 
 	
-        if (daucot < n) { 
+        if (daucot < cot) { 
             for (i = dong - 1; i >= daudong; --i) { 
-                printf("%d ", a[i][l]); 
+                printf("%d ", a[i][daucot]); 
             } 
             daucot++; 
         } 
